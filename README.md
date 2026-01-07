@@ -17,6 +17,42 @@ The goal of this project is to showcase practical skills in working with **Docke
 * **Cloud / Local Cluster** – Minikube, Kind, or cloud provider
 
 ---
+# 🚀 Infrastructure Health Check API
+
+A lightweight HTTP service designed to demonstrate infrastructure monitoring, environment transparency, and Kubernetes integration.
+
+## 📌 Object Overview
+The **Infrastructure Health Check API** is a minimal service that provides essential data about its internal state and the environment it runs in. It is specifically built to showcase how applications interact with orchestrators like Kubernetes using Probes and Environment Variables.
+
+### Key Features:
+* **Service Vitality:** Instantly verify if the service is up and running.
+* **Environment Transparency:** Displays versioning and environment-specific data (dev/stage/prod).
+* **Kubernetes Ready:** Built-in endpoints for Liveness and Readiness probes.
+* **Execution Context:** Provides startup time and system uptime info.
+
+---
+
+## 🛣 API Endpoints
+
+| Endpoint | Method | Purpose | Description |
+| :--- | :---: | :--- | :--- |
+| `/` | `GET` | **Basic Check** | Returns a simple "Hello" to confirm connectivity. |
+| `/health` | `GET` | **Liveness Probe** | Signals to Kubernetes that the container is alive. |
+| `/ready` | `GET` | **Readiness Probe** | Signals that the app is ready to handle traffic. |
+| `/version` | `GET` | **Version Info** | Displays the application version pulled from ENV. |
+| `/env` | `GET` | **Env Context** | Shows current environment name (dev/prod/etc). |
+
+---
+
+## 🛠 Tech Stack
+* **Language:** Python / Flask
+* **Containerization:** Docker
+* **Orchestration:** Kubernetes (K8s)
+* **CI/CD:** GitHub Actions
+
+---
+
+
 
 ## 📂 Repository Structure
 
@@ -40,7 +76,7 @@ The goal of this project is to showcase practical skills in working with **Docke
 * Docker
 * Kubernetes cluster (Minikube / Kind / Cloud)
 * kubectl
-* Helm (optional)
+* Helm 
 
 ### Run Locally
 
@@ -109,11 +145,11 @@ kubectl logs <pod-name>
 
 ## 👤 Author
 
-**Your Name**
+**Denys Kokhan (Aen)**
 DevOps / Cloud Engineer
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+---
