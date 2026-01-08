@@ -1,10 +1,22 @@
-from flask  import Flask, jsonify
+from flask  import Flask, jsonify, request
 import os
 import datetime
+import logging
+
 
 app = Flask(__name__)
 
 boot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+logging.basicConfig(
+	filename='/app/logs/access.log',
+	level=logging.INFO,
+	format='%(asctime)s - %(message)s'
+)
+
+@app.before_request
+def log_reques_info():
+	logging.info(f"Request: {request.path} from {request.remote_addr}")
 
 
 @app.route('/')
