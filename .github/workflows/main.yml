@@ -2,7 +2,7 @@ name: My-DevOps-Projecr
 
 on: [push]
 
-  jobs:
+jobs:
     quality-controll:
       runs-on: ubuntu-latest
 
