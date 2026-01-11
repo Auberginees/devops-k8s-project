@@ -1,6 +1,6 @@
 name: My-DevOps-Projecr
 
-  on: [push]
+on: [push]
 
   jobs:
     quality-controll:
