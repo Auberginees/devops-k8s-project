@@ -3,28 +3,28 @@ name: My-DevOps-Projecr
 on: [push]
 
 jobs:
-    quality-controll:
-      runs-on: ubuntu-latest
+  quality-controll:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        - name: Set up Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Check code style
-          run: |
+       - name: Check code style
+         run: |
             pip install flake8
             flake8 app/ --count --select=E9,F63,F7,F82 --show-source --statistics
 
-        - name: Build Docker image
-          run: docker build -t my-app-test -f docker/Dockerfile .
+       - name: Build Docker image
+         run: docker build -t my-app-test -f docker/Dockerfile .
 
-        - name: Test Container Health
-          run: |
+       - name: Test Container Health
+         run: |
             docker run -d --name test-api -p 8080:8081 my-app-test
             sleep 10
             STATUS=$(docker inspect --format='{{.State.Health.Status}}' test-api)
