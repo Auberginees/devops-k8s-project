@@ -29,7 +29,7 @@ jobs:
           sleep 10
           STATUS=$(docker inspect --format='{{.State.Health.Status}}' test-api)
           echo "Container status is $STATUS"
-          if ["$STATUS" != "healthy"]; then
+          if [ "$STATUS" != "healthy" ]; then
             echo "Oh no! Container is NOT healthy!"
             exit 1
           fi
