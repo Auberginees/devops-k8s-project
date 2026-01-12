@@ -1,5 +1,7 @@
 FROM python:3.11-slim
 
+RUN apt-get update && apt-get install -y curl && -rf /var/lib/lists/*
+
 WORKDIR /app
 
 COPY app/requirements.txt .
@@ -12,9 +14,8 @@ COPY app/ .
 
 EXPOSE 8080
 
-CMD ["python", "main.py"] 
-
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 CMD curl --fail http://localhost:8080/health || exit 1 
 
+CMD ["python", "main.py"] 
