@@ -27,11 +27,11 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'my-app-test'
-          fortmat: 'table'
+          format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGHT'
+          severity: 'CRITICAL,HIGH'
 
       - name: Test Container Health
         run: |
