@@ -2,14 +2,14 @@ from flask  import Flask, jsonify, request
 import os
 import datetime
 import logging
-
+import sys
 
 app = Flask(__name__)
 
 boot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 logging.basicConfig(
-	filename='/app/logs/access.log',
+	stream=sys.stdout,
 	level=logging.INFO,
 	format='%(asctime)s - %(message)s'
 )
