@@ -15,5 +15,6 @@ spec:
       containers:
       - name: app-container
         image: aen4ik/my-app-test:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
