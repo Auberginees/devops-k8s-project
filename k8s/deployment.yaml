@@ -7,8 +7,13 @@ spec:
   selector:
     matchLabels:
       app: python-web
+  template:
+    metadata:
+      labels:
+        app: python-web
     spec:
       containers:
       - name: app-container
-        image: test-api
-        ports: 8080
+        image: aen4ik/my-app-test:latest
+        ports:
+        - containerPort: 8080
