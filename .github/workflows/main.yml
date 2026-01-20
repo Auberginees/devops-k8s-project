@@ -42,7 +42,7 @@ jobs:
 
       - name: Test Container Health
         run: |
-          docker run -d --name test-api -p 8080:8081 my-app-test
+          docker run -d --name test-api -p 8080:8081 aen4ik/my-app-test:latest
           sleep 10
           STATUS=$(docker inspect --format='{{.State.Health.Status}}' test-api)
           echo "Container status is $STATUS"
